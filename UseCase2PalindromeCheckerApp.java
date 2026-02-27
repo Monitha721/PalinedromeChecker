@@ -1,24 +1,45 @@
-public class UseCase2PalindromeCheckerApp {
+import java.util.*;
+
+public class UseCase10PalindromeCheckerApp {
+
+    // Function to check palindrome using two-pointer technique
+    public static boolean isPalindrome(String str) {
+
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+    }
 
     public static void main(String[] args) {
 
-        // Hardcoded string (String Literal)
-        String word = "madam";
+        Scanner sc = new Scanner(System.in);
 
-        // Variable to store reversed string
-        String reversed = "";
+        System.out.println("===== UC10: Case-Insensitive & Space-Ignored Palindrome =====");
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
-        // Logic to reverse the string
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
-        }
+        // Step 1: Normalize string
+        // Remove spaces and special characters using Regular Expression
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
-        // Check if original and reversed strings are equal
-        if (word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome.");
+        // Step 2: Apply palindrome logic
+        boolean result = isPalindrome(normalized);
+
+        if (result) {
+            System.out.println("Result: The given string is a Palindrome (Ignoring case & spaces).");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println("Result: The given string is NOT a Palindrome.");
         }
 
+        sc.close();
     }
 }
