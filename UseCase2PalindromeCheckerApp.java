@@ -1,24 +1,43 @@
-public class UseCase2PalindromeCheckerApp {
+import java.util.*;
+
+public class UseCase9PalindromeCheckerApp {
+
+    // Recursive function to check palindrome
+    public static boolean isPalindrome(String str, int start, int end) {
+
+        // Base Condition: If start crosses end
+        if (start >= end) {
+            return true;
+        }
+
+        // If characters don't match
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        // Recursive Call
+        return isPalindrome(str, start + 1, end - 1);
+    }
 
     public static void main(String[] args) {
 
-        // Hardcoded string (String Literal)
-        String word = "madam";
+        Scanner sc = new Scanner(System.in);
 
-        // Variable to store reversed string
-        String reversed = "";
+        System.out.println("===== UC9: Recursive Palindrome Checker =====");
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
-        // Logic to reverse the string
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
-        }
+        // Remove spaces and convert to lowercase
+        input = input.replaceAll("\\s+", "").toLowerCase();
 
-        // Check if original and reversed strings are equal
-        if (word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome.");
+        boolean result = isPalindrome(input, 0, input.length() - 1);
+
+        if (result) {
+            System.out.println("Result: The given string is a Palindrome.");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println("Result: The given string is NOT a Palindrome.");
         }
 
+        sc.close();
     }
 }
