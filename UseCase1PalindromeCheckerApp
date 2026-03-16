@@ -1,0 +1,21 @@
+public class UseCase1PalindromeCheckerApp {
+
+    public static void main(String[] args) {
+
+        // Display application welcome message
+        System.out.println("====================================");
+        System.out.println("     Palindrome Checker App");
+        System.out.println("====================================");
+
+        // Display application details
+        System.out.println("Version: 1.0");
+        System.out.println("Developer: Java Console Application");
+
+        // Inform user about application purpose
+        System.out.println("This application checks whether a given word is a palindrome.");
+
+        System.out.println("Application started successfully...");
+        System.out.println("Proceeding to palindrome validation...");
+
+    }
+}
